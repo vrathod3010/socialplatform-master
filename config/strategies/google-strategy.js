@@ -13,7 +13,7 @@ module.exports = function() {
         callbackURL: "http://localhost:3000/auth/google/callback"
       },
       function(accessToken, refreshToken, profile, done) {
-        // console.log(profile._json);
+        console.log(profile._json);
         // // done(null, profile);
         User.findOne({gId:profile._json.sub})
         .then(newUser => {

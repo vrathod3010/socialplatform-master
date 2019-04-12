@@ -10,6 +10,7 @@ module.exports = function() {
         callbackURL: "http://localhost:3000/auth/facebook/callback"
       },
       function(accessToken, refreshToken, profile, done) {
+        console.log(profile);
         User.findOne({sId:profile._json.id})
         .then(newUser => {
             if(newUser) {
